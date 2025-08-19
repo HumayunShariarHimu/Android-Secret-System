@@ -194,6 +194,98 @@ Ethical/legal context এ ব্যবহার করা যাবে না
 
 
 
+---
+
+১. Hidden Intents / Undocumented URI Schemes
+
+কিছু অ্যাপ বা সিস্টেমের undocumented URI scheme বা intent থাকে।
+
+উদাহরণ:
+
+Dialer pre-fill: tel:017xxxxxxxx
+
+WhatsApp: whatsapp://send?text=হ্যালো
+
+Google Maps: geo:0,0?q=Dhaka
+
+
+Root ছাড়া ইউজারের interaction ছাড়া কোনো action অটো হয় না, শুধু open বা pre-fill হয়।
+
+
+
+---
+
+২. Accessibility Exploits / Automation
+
+Accessibility Services দিয়ে screen tap, swipe, scroll, UI element trigger করা যায়।
+
+APK ছাড়া সম্ভব নয়, কিন্তু কিছু ক্ষেত্রে automation app ব্যবহার করলে এটি “সিক্রেট” মত কাজ করে।
+
+
+
+---
+
+৩. Web APIs (Limited Secret Actions)
+
+Browser/PWA দিয়ে কিছু hidden-like action:
+
+Sensor triggers: shake, tilt, orientation → local action (vibration, sound)
+
+Push notification action → pre-defined response
+
+Camera / Microphone access → only with user permission
+
+
+অটো system action (call, USSD, settings change) সাধ্য নয়।
+
+
+
+---
+
+৪. Event-based Triggers
+
+Scheduled events / Alarms / Background sync (WorkManager, Service Worker)
+
+এটি PWA বা Web API তে possible।
+
+কিন্তু কল, USSD, setting change এর মতো system level কাজ সম্ভব নয়।
+
+
+
+---
+
+৫. Exploit / Vulnerability (Dangerous & Illegal)
+
+কিছু পুরনো Android vulnerability দিয়ে system action trigger করা যায়।
+
+কিন্তু এটি অত্যন্ত ঝুঁকিপূর্ণ এবং আইনবিরুদ্ধ।
+
+সাধারণ ব্যবহারকারীর জন্য কোনো নিরাপদ উপায় নয়।
+
+
+
+---
+
+✅ সংক্ষেপে
+
+1. Root ছাড়া APK বা USSD ছাড়া অটো execution সম্ভব নয়।
+
+
+2. Maximum যা করা যায়: pre-fill, deep link, Web/PWA local action, notification, sensor trigger।
+
+
+3. Rooted ডিভাইসে Service call, am start, input command দিয়ে প্রায় সব করা যায়।
+
+
+4. Accessibility Automation Apps দিয়ে কিছু “সিক্রেট” UI trigger করা সম্ভব, তবে APK প্রয়োজন।
+
+
+5. Exploit / vulnerability আছে, কিন্তু legal & security risk খুব বেশি।
+
+
+
+
+
 
 
 
