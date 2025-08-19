@@ -1,0 +1,104 @@
+
+১. Intent / Deep Linking
+
+অনেক অ্যান্ড্রয়েড অ্যাপ এবং সিস্টেম ফাংশন “Intent” এর মাধ্যমে ট্রিগার করা যায়।
+
+উদাহরণ: Dialer, SMS, Email, Browser, Settings।
+
+সিম্পল উদাহরণ:
+
+
+<!-- SMS প্রি-ফিল -->
+<a href="sms:017xxxxxxxx?body=হ্যালো">SMS পাঠাও</a>
+
+<!-- Email প্রি-ফিল -->
+<a href="mailto:test@example.com?subject=Hello&body=Message">Email পাঠাও</a>
+
+<!-- Dialer pre-fill -->
+<a href="tel:017xxxxxxxx">কল করো</a>
+
+এই পদ্ধতিতে ইউজারকে শেষ ধাপে Confirm / Send / Call করতে হয়।
+
+
+
+---
+
+২. Web APIs / Browser Trigger
+
+Modern Android ব্রাউজার কিছু Web API সমর্থন করে:
+
+Vibration API → ফোন কম্পন
+
+Notification API → পুশ নোটিফিকেশন দেখানো
+
+Geolocation API → লোকেশন পাওয়া
+
+Fullscreen / Wake Lock → স্ক্রিন বা ফোকাস কন্ট্রোল
+
+
+কোনো APK ছাড়াই ব্রাউজারে কার্যকর, তবে ইউজারের অনুমতি লাগে।
+
+
+
+---
+
+৩. PWA (Progressive Web App)
+
+ওয়েব অ্যাপ হিসেবে ইনস্টল করা যায়।
+
+ব্রাউজার থেকে App-like ফিচার ব্যবহার করা যায়:
+
+Camera / Microphone access
+
+Push notification
+
+Background sync
+
+
+APK ছাড়া Native অ্যাপের মতো কিছু ফাংশন চালানো সম্ভব।
+
+
+
+---
+
+৪. Shortcut / URI Schemes
+
+অনেক অ্যাপ নিজস্ব URI scheme দেয়।
+
+উদাহরণ: whatsapp://send?text=হ্যালো → WhatsApp খুলে পাঠানো শুরু
+
+maps://?q=Dhaka → Google Maps খুলে লোকেশন দেখানো
+
+
+ইউজারকে ক্লিক করতে হবে, কিন্তু কোনো APK ইনস্টল ছাড়াও কাজ করে।
+
+
+
+---
+
+৫. System Settings / Intents
+
+Android-এর কিছু সিস্টেম সেটিংস ইউজার ট্রিগার করতে পারে:
+
+
+<a href="intent://settings/#Intent;action=android.settings.WIFI_SETTINGS;end">Wi-Fi Settings খুলো</a>
+
+ইউজারকে Confirm করতে হবে।
+
+Root ছাড়া অটো পরিবর্তন সম্ভব নয়।
+
+
+
+---
+
+সীমাবদ্ধতা
+
+APK ছাড়া অটো এক্সিকিউশন সাধারণত সম্ভব নয়।
+
+USSD ছাড়া, সব পদ্ধতিই pre-fill বা trigger লেভেল পর্যন্ত সীমাবদ্ধ। ইউজারের ইনপুট ছাড়া কাজ করা নিরাপদ নয়।
+
+Rooted ডিভাইসে কিছু System Command অটো চালানো যায় (service call, am start), কিন্তু সেগুলো সাধারণ ডিভাইসে সম্ভব নয়।
+
+
+
+
